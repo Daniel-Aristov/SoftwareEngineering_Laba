@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Студенты</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+<body>
+<div class="head">					<!-- Кнопка добавления нового студента -->
+    <h3><p style="text-align:center">Список студентов: &nbsp&nbsp;
+        <button type="button" class="add">Добавить</button></p></h3><br>
+</div>
+
+<div>                          <!-- Таблица студентов -->
+    <table>
+        <thead>
+        <tr>
+            <td style="width: 20px">Id</td>
+            <td>Ф.И.О.</td>
+            <td style="width: 45%">Группа</td>
+            <td style="width: 55%">Телефон</td>
+            <td>E-mail</td>
+            <td style="width: 100%">Изменение/удаление</td>
+        </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+    </table>
+</div>
+
+<div id="remove">        <!-- Форма удаления -->
+    <div class="form-rm">
+        <div>
+            <h4>Вы действительно хотите удалить студента?</h4>
+            <button type="button" class="btn-close" data-id="remove">х</button>
+        </div>
+        <div>
+            <button type="button" class="submit" data-func="remove">Удалить</button> &nbsp;&nbsp;
+            <button type="button" class="close" data-id="remove">Отмена</button>
+        </div>
+    </div>
+</div>
+
+<div id="edit">    <!-- Форма добавления и изменения -->
+    <div class=form-edit>
+        <div>
+            <h4 class="title"></h4>
+            <button type="button" class="btn-close" data-id="edit">х</button>
+        </div>
+        <form>
+            <input type="hidden" id="Id" value="-1">
+            <div>
+                <label for="name"></label>
+                <input type="tel" id="name" placeholder="Ф.И.О">
+            </div>
+            <div>
+                <label for="group"></label>
+                <select id="group" class="select">
+                    <option value="ЦПИ-11">ЦПИ-11</option>
+                    <option value="ЦПС-12">ЦПС-12</option>
+                    <option value="ЦПС-16">ЦПС-16</option>
+                    <option value="ЦПС-19">ЦПС-19</option>
+                </select>
+            </div>
+            <div>
+                <label for="phone"></label>
+                <input type="tel" id="phone" placeholder="Номер телефона">
+            </div>
+            <div>
+                <label for="email"></label>
+                <input type="tel" id="email" placeholder="E-mail">
+            </div>
+            <div>
+                <button type="button" class="close" data-id="edit">Отмена</button> &nbsp;&nbsp;
+                <button type="button" class="submit" data-func="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
