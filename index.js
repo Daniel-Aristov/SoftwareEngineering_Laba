@@ -57,5 +57,5 @@ const handler = function (req, res) {
 }
 
 http.createServer(handler).listen(8090, () => {
-    console.log("run")
+    console.log("Server listening on port 8090")
 })
