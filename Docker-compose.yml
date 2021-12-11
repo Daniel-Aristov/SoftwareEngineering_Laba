@@ -1,0 +1,21 @@
+# Версия docker-compose
+  version '3'
+
+# Список контейнеров
+services:
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8098:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./public:/opt/www
+
+  nodejs:
+    build: ./image
+    restart: always
+    ports:
+      - "8090:8000"
+    volumes:
+      - ./app:/opt/app

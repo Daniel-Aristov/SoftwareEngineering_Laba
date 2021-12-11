@@ -4,11 +4,9 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN npm insdtall
+RUN npm install
 
 COPY . .
-
-EXPOSE 8090
 
 CMD ["node", "index.js"]
 

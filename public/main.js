@@ -35,7 +35,7 @@ let data = new function () {
 const util = new function () {
     this.ajax = (params, callback) => {
         let url = "";
-        if (params.path !== undefined) {
+        if (params.path !== undefined) { // Для удаления
             url = params.path;
             delete params.path;
         }
@@ -84,7 +84,7 @@ const init = () => {
     util.q("button.add").forEach(el => {  // Кнопка добавления
         util.listen(el, "click", add);
     });
-    util.q(".btn-close, .close").forEach(el => {  //крестики и отмена
+    util.q(".btn-close, .close").forEach(el => {  // Крестики и отмена
         util.listen(el, "click", () => {
             util.id(el.dataset["id"]).style.display = "none";
         });

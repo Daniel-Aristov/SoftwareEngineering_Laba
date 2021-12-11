@@ -25,7 +25,7 @@ module.exports = new function () {
     }
 
     stat(fileName, (err, stats) => {
-        if (err && err.code === "ENOENT") {
+        if (err && err.code === "ENOENT") {    // Ошибка, когда нет такого файла
             writeFileSync(fileName, {});
         }
     data = JSON.parse(readFileSync(fileName, {encoding:"UTF-8"}));

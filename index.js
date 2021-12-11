@@ -2,18 +2,18 @@ const http = require("http"),
       crud = require("./crud"),
       statics = require("node-static");
 
-const staticFileDir = new statics.Server("./public");
+const staticFileDir = new statics.Server("./public"); // Размещение статики на сервере
 
 const echo = (res, content) => {
     res.end(JSON.stringify(content));
 }
 
 const student = (req, res) => {
-    res.writeHead(200,{"Content-type": "application/json"});
+    res.writeHead(200,{"Content-type": "application/json"}); // Создание заголовка запроса
 
     const url = req.url.substring(1).split("/");
 
-    switch (req.method) {
+    switch (req.method) {  // Определяется метод запроса
         case "GET":
             if (url.length > 1)
                 echo (res, crud.get(url[1]))
@@ -36,7 +36,7 @@ const student = (req, res) => {
             else
                 echo(res,{error:"Не передан id"})
             break;
-            default: echo(res,{error:"500"})
+        default: echo(res,{error:"500"})
     }
 }
 
@@ -48,7 +48,7 @@ const getAsyncData = (req, callback) => {
 
 const handler = function (req, res) {
     const url = req.url.substring(1).split("/")
-    switch (url[0]) {
+    switch (url[0]) {   // Если первый url после localhost /student, то вызываем функцию
         case "student":
             student(req, res);
             return
@@ -56,6 +56,6 @@ const handler = function (req, res) {
     staticFileDir.serve(req, res);
 }
 
-http.createServer(handler).listen(8090, () => {
+http.createServer(handler).listen(8090, () => {  // Создание сервера на порте с функцией handler
     console.log("Server listening on port 8090")
 })
