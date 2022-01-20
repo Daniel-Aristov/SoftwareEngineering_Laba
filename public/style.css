@@ -1,7 +1,8 @@
 body {
     margin:0;
     padding:0;
-    background: #fcfcfc; /* фоновый цвет */
+    background: rgb(9,60,121);
+    background: linear-gradient(90deg, rgba(9,60,121,0.8855917366946778) 19%, rgba(3,98,211,1) 60%, rgba(0,155,255,1) 91%);
     font-family: sans-serif; /* шрифт, семейство шрифтов */
 }
 
